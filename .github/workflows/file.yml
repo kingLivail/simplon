@@ -17,6 +17,8 @@ on:
             git checkout main
         - name: Setup php:8.1
           uses: shivammatur/setup-php@v2
+        - name: login to docker
+          run: docker login -u  kinglivail -p mohammEd@4423
         - name: Build the Docker image
           run: docker build -t kinglivail/file:1 .
         - name: Push
