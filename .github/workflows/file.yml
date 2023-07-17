@@ -1,24 +1,24 @@
-name: build and push image to docker to Docker Hub
-
 on:
     push:
-        branches:
-            - master
-    pull requests:
-        branches:
-            - master        
-
-
-jobs:
+      branches:
+        - main
+    pull_request:
+      branches:
+        - main
+  
+  jobs:
     build:
-        runs on: ubuntu-latest
-        steps:
-            - name: Checkout
-             uses: actions/checkout@V2
-            - name: setup php:8.1
-             uses: shivammatur/setup-php@v2
-
-            - name: Build the Docker image
-              run: docker build -t kinglivail/file:1 .
-              run: docker push kinglivail/file:1
-
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout
+          run: |
+            git clone
+            cd simplon
+            git checkout main
+        - name: Setup php:8.1
+          uses: shivammatur/setup-php@v2
+        - name: Build the Docker image
+          run: docker build -t kinglivail/file:1 .
+        - name: Push
+          run: docker push kinglivail/file:1
+  
